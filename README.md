@@ -1,6 +1,4 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+<p align="center"><a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a></p>
 
 # NestJS Docker Starter Kit
 - NestJS v10.x
@@ -8,6 +6,7 @@
 - Postgres v16.x
 - Node.js v18.x
 - NPM v10.x
+- Adminer v4.8.x
 
 # Requirements
 - Stable version of [Docker](https://docs.docker.com/engine/install/)
