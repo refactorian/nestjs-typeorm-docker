@@ -9,6 +9,3 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    ignore:
-      - dependency-name: "@nestjs/testing"
-        versions: ["^8.0.0"]
