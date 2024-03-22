@@ -4,9 +4,10 @@
 - NestJS v10.x
 - TypeScript v5.x
 - Postgres v16.x
+- pgAdmin v4.x
+- Adminer v4.8.x
 - Node.js v18.x
 - NPM v10.x
-- Adminer v4.8.x
 
 # Requirements
 - Stable version of [Docker](https://docs.docker.com/engine/install/)
