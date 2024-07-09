@@ -12,30 +12,58 @@ services:
       - db
 
   db:
-    image: postgres:16
+    image: mariadb:10.11
+    #image: mysql:8.1
+    command: '--default-authentication-plugin=mysql_native_password'
     environment:
-      - POSTGRES_USER=refactorian
-      - POSTGRES_PASSWORD=refactorian
-      - POSTGRES_DB=refactorian
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_DATABASE=refactorian
+      - MYSQL_USER=refactorian
+      - MYSQL_PASSWORD=refactorian
     volumes:
-      - ./docker/db/data:/var/lib/postgresql/data
+      - ./docker/db/data:/var/lib/mysql
       - ./docker/db/sql:/docker-entrypoint-initdb.d
     ports:
-      - 5432:5432
+      - 3306:3306
 
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=password
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
     ports:
-      - 5050:80
-    depends_on:
-      - db
+        - 8080:80
+    links:
+        - db
+    environment:
+        PMA_HOST: db
+        PMA_PORT: 3306
+        PMA_ARBITRARY: 1
+    volumes:
+        - ./docker/phpmyadmin/sessions:/sessions
+
+  # db:
+  #   image: postgres:16
+  #   environment:
+  #     - POSTGRES_USER=refactorian
+  #     - POSTGRES_PASSWORD=refactorian
+  #     - POSTGRES_DB=refactorian
+  #   volumes:
+  #     - ./docker/db/data:/var/lib/postgresql/data
+  #     - ./docker/db/sql:/docker-entrypoint-initdb.d
+  #   ports:
+  #     - 5432:5432
+
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+  #     - PGADMIN_DEFAULT_PASSWORD=password
+  #   ports:
+  #     - 5050:80
+  #   depends_on:
+  #     - db
 
   adminer:
     image: adminer
     ports:
-        - 8080:8080
+        - 9090:8080
     depends_on:
       - db

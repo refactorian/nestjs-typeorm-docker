@@ -3,6 +3,8 @@
 # NestJS Docker Starter Kit
 - NestJS v10.x
 - TypeScript v5.x
+- MariaDB v10.11.x (default)
+- MySQL v8.1.x
 - Postgres v16.x
 - pgAdmin v4.x
 - Adminer v4.8.x
@@ -22,8 +24,22 @@
 ### App
 - URL: http://localhost:3000
 
-### Adminer
+### phpMyAdmin
 - URL: http://localhost:8080
+- Server: `db`
+- Username: `refactorian`
+- Password: `refactorian`
+- Database: `refactorian`
+
+### Adminer
+- URL: http://localhost:9090
+- Server: `db`
+- Username: `refactorian`
+- Password: `refactorian`
+- Database: `refactorian`
+
+<!-- ### Adminer
+- URL: http://localhost:9090
 - System: `PostgreSQL`
 - Server: `db`
 - Username: `refactorian`
@@ -33,7 +49,7 @@
 ### pgAdmin
 - URL: http://localhost:5050
 - Email: `admin@admin.com`
-- Password: `password`
+- Password: `password` -->
 
 ### Docker compose commands
 - Build or rebuild services
